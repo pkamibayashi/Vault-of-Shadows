@@ -1,19 +1,20 @@
-import home from "./pages/home/index.js";
-import attributesMenu from "./pages/attributesMenu/index.js";
+import home from './pages/home/index.js';
+import attributesMenu from './pages/attributesMenu/index.js';
+
+const body = document.querySelector('#body');
 
 const init = () => {
-  window.addEventListener("hashchange", () => {
-    switch (window.location.hash) {
-      case "#atributo":
-        body.appendChild(attributesMenu());
-        break;
-
-      default:
-        break;
-    }
-  });
+  if (window.location.hash === ' ') {
+    body.appendChild(home());
+  }
+  if (window.location.hash === '#atributo') {
+    body.innerHTML = ' ';
+    body.appendChild(attributesMenu());
+    console.log('eu sou atributo');
+  }
 };
-window.addEventListener("load", () => {
+
+window.addEventListener('load', () => {
   body.appendChild(home());
   init();
 });

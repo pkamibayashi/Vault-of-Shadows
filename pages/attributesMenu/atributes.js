@@ -1,9 +1,8 @@
 export default () => {
-  const container = document.createElement("main");
+  const container = document.createElement('main');
   const template = `
-    <main> 
       <div id='CustomCharacter'>
-      <h1>Por gentileza, distribua os pontos.</h1>
+        <h1>Por gentileza, distribua os pontos.</h1>
       
       <ul>
         <li>VIDA:</li>
@@ -15,13 +14,10 @@ export default () => {
       <h2>PONTOS:<span> 0</span></h2>
       <h2>Qual é seu nome, heroi?<h2>
         <input type='text' placeholder='Digite seu nome:'></input>
-        </div>
+      </div>
         <div id='heroPic'>
           <img id="" src="" alt=""/>
-        </div>
-    
-    
-    `;
+        </div>`;
 
   container.appendChild(template);
   return template;

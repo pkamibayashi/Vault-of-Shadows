@@ -1,5 +1,5 @@
 export default () => {
-  const container = document.createElement("main");
+  const container = document.createElement('main');
   const template = `<h1>Choose Your Hero!</h1>
     <div id="imgs">
       <div>
@@ -19,7 +19,7 @@ export default () => {
       </div>
     </div>
    
-    <a href="atributo" id='selectCharacter'>
+    <a href="#atributo" id='selectCharacter'>
       <span class="shadow"></span>
       <span class="edge"></span>
       <span class="front text"> SELECT CHARACTER </span>
