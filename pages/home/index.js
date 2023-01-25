@@ -18,11 +18,13 @@ export default () => {
         /></a>
       </div>
     </div>
-    <button>
+   
+    <a href="atributo" id='selectCharacter'>
       <span class="shadow"></span>
       <span class="edge"></span>
-      <span class="front text"> Click me </span>
-    </button>`;
-  container.innerHTML(template);
+      <span class="front text"> SELECT CHARACTER </span>
+    </a>`;
+
+  container.innerHTML = template;
   return container;
 };
