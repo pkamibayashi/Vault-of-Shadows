@@ -22,10 +22,6 @@ body {
   flex-direction: column;
 }
 
-footer {
-  border: 3px solid pink;
-}
-
 main {
   border: 2px solid red;
   height: 40vh;
@@ -34,38 +30,47 @@ main {
   width: 95%;
   height: 95%;
   align-items: center;
+  flex-direction: column;
+}
+
+main h1 {
+  color: white;
+  font-family: "Source Code Pro", monospace;
+  font-size: 50px;
 }
 
 #imgs {
-  border: 4px dotted blue;
   display: flex;
   width: 90%;
   height: 80%;
   justify-content: space-evenly;
   align-items: center;
- 
   position: relative;
-  border: 1px solid red;
-  padding:  15%;
+  -webkit-box-shadow: -1px 8px 26px 19px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -1px 8px 26px 19px rgba(0, 0, 0, 0.53);
+  box-shadow: -1px 8px 26px 19px rgba(0, 0, 0, 0.53);
 }
 
 img {
- 
   height: 100%;
   width: 80%;
- 
+  margin: 40px;
   animation: cardAnimation 3.5s infinite;
   border-radius: 40px;
-  transition: cardAnimation 1s ease-in-out;
+  transition: cardAnimation 3s ease-in-out;
   top: 80px;
   left: 80px;
-  gap: 2  0rem;
+  gap: 2 0rem;
+  -webkit-box-shadow: -3px 116px 102px -22px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: -3px 116px 102px -22px rgba(0, 0, 0, 0.48);
+  box-shadow: -3px 116px 102px -22px rgba(0, 0, 0, 0.48);
 }
 
 @keyframes cardAnimation {
   0% {
     max-height: 40rem;
     max-width: 20rem;
+    transition: all 2s ease;
   }
 
   40% {
@@ -79,26 +84,156 @@ img {
   }
 }
 
-
 img:hover {
- 
-  animation: imgHover 4s infinite;
+  height: 100%;
+  width: 80%;
+  animation: imgHover 6s infinite;
+  margin: 40px;
+  transition: all 2s ease;
+}
+
+#warrior:target {
+  /* height: 50rem;
+  width: 50rem; */
+  border-bottom: 10px solid hsl(240, 13%, 39%, 2);
+  border-right: 10px solid hsl(240, 13%, 39%, 2);
+  animation: ativo 6s infinite;
+  transition: all 2s ease;
+}
+#wizard:target {
+  height: 50rem;
+  width: 50rem;
+  border-bottom: 10px solid hsl(240, 13%, 39%, 2);
+  animation: ativo 6s infinite;
+
+  transition: all 2s ease;
+}
+#archer:target {
+  height: 50rem;
+  width: 50rem;
+  border-bottom: 10px solid hsl(240, 13%, 39%, 2);
+  border-left: 10px solid hsl(240, 13%, 39%, 2);
+  animation: ativo 6s infinite;
+  transition: all 2s ease;
+}
+
+@keyframes ativo {
+  0% {
+    height: 30rem;
+    width: 30rem;
+  }
+
+  40% {
+    height: 33rem;
+    width: 30rem;
+    opacity: 1;
+  }
+
+  100% {
+    height: 30rem;
+    width: 30rem;
+  }
 }
 
 @keyframes imgHover {
   0% {
-    height: 30rem;
+    transition: ease-in-out;
+    opacity: 0.9;
+    height: 20rem;
     width: 25rem;
   }
 
   40% {
-    height: 40rem;
+    opacity: 1;
+    height: 32rem;
     width: 25rem;
   }
 
   100% {
-    height: 45rem;
+    height: 20rem;
     width: 25rem;
+    transition: ease-in-out;
   }
+}
 
-  }
+button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+button:hover {
+  filter: brightness(110%);
+}
+
+button:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
