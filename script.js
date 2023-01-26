@@ -1,20 +1,25 @@
-import home from './pages/home/index.js';
-import attributesMenu from './pages/attributesMenu/index.js';
+import { charSelection } from "./paginas/CharSelection/index.js";
+import { propertiesScreen } from "./paginas/propertiesScreen/index.js";
 
-const body = document.querySelector('#body');
+const body = document.querySelector("#body");
 
 const init = () => {
-  if (window.location.hash === ' ') {
-    body.appendChild(home());
-  }
-  if (window.location.hash === '#atributo') {
-    body.innerHTML = ' ';
-    body.appendChild(attributesMenu());
-    console.log('eu sou atributo');
-  }
+  window.addEventListener("hashchange", () => {
+    switch (window.location.hash) {
+      case " ":
+        body.appendChild(charSelection());
+        break;
+      case "#atributo":
+        body.innerHTML = " ";
+        body.appendChild(propertiesScreen());
+        break;
+      default:
+        break;
+    }
+  });
 };
 
-window.addEventListener('load', () => {
-  body.appendChild(home());
+window.addEventListener("load", () => {
+  body.appendChild(charSelection());
   init();
 });
