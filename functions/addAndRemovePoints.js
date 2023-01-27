@@ -2,7 +2,7 @@ export function addAndRemovePoints() {
   const points = document.querySelectorAll(".points");
   const btnAdd = document.querySelectorAll(".add");
   const btnLess = document.querySelectorAll(".remove");
-  const saveButton = document.querySelector(".save");
+
   const availablePoints = document.getElementById("total");
 
   for (let i = 0; i < btnAdd.length; i++) {

@@ -23,13 +23,16 @@ window.addEventListener("load", () => {
 //as coisas fiquem mais legiveis.
 const init = () => {
   let hero;
+
   function HeroDetails(detail) {
     hero = detail;
   }
+
   window.addEventListener("hashchange", () => {
     switch (window.location.hash) {
       case " ":
         body.appendChild(charSelection());
+
         break;
       case "#atributo":
         body.innerHTML = " ";
@@ -57,7 +60,13 @@ const init = () => {
       case "#board":
         body.innerHTML = " ";
         body.appendChild(board());
-        console.log(hero);
+        const atacar = document.getElementById("attackBtn");
+        const defender = document.getElementById("DefenderBtn");
+        const resposta = document.getElementById("resposta");
+        const goblin = new player("Wild Goblin", 30, 20, 47, 5);
+        atacar.addEventListener("click", () => {
+          alert(hero.attack(goblin.pv));
+        });
 
         break;
     }

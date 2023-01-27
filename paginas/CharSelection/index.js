@@ -6,17 +6,17 @@ export function charSelection() {
         <div id="imgs">
           <div>
             <a href="#warrior"
-              ><img id="warrior" src="./images/warrior.png" alt=""
+              ><img class="ImgMainMenu" id="warrior" src="./images/warrior.png" alt=""
             /></a>
           </div>
           <div>
             <a href="#wizard"
-              ><img id="wizard" src="./images/wizard.png" alt=""
+              ><img class="ImgMainMenu" id="wizard" src="./images/wizard.png" alt=""
             /></a>
           </div>
           <div>
             <a href="#archer"
-              ><img id="archer" src="./images/archer.png" alt=""
+              ><img class="ImgMainMenu" id="archer" src="./images/archer.png" alt=""
             /></a>
           </div>
         </div>

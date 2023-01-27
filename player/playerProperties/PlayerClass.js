@@ -7,9 +7,13 @@ export class player {
     this.armor = armor;
   }
 
-  attack() {
+  attack(life) {
     let damage = this.str + this.ap;
-    return `${this.nome} atacou o inimigo e o causou ${damage} de dano`;
+    return `${
+      this.nome
+    } atacou o inimigo e o causou ${damage} de dano a vida do inimigo agora é ${
+      life - damage
+    }`;
   }
 
   receiveDamage() {
@@ -24,9 +28,13 @@ export class Goblin extends player {
     this.nome = "Wild Goblin";
   }
 
-  attack() {
+  attack(life) {
     let damage = this.str + this.ap;
-    return `${this.nome} atacou o jogador e o causou ${damage} de dano`;
+    return `${
+      this.nome
+    } atacou o jogador e o causou ${damage} de dano, a vida do inimigo agora é ${
+      life - damage
+    }`;
   }
 
   receiveDamage() {
