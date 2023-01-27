@@ -22,6 +22,10 @@ window.addEventListener("load", () => {
 // estou importando essas functions de outros modulos JS, para que assim,
 //as coisas fiquem mais legiveis.
 const init = () => {
+  let hero;
+  function HeroDetails(detail) {
+    hero = detail;
+  }
   window.addEventListener("hashchange", () => {
     switch (window.location.hash) {
       case " ":
@@ -31,11 +35,30 @@ const init = () => {
         body.innerHTML = " ";
         body.appendChild(propertiesScreen());
         addAndRemovePoints();
+        const saveButton = document.querySelector(".save");
+        let nome = document.getElementById("nome");
+        let pv = document.getElementById("pv");
+        let str = document.getElementById("str");
+        let ap = document.getElementById("ap");
+        let armor = document.getElementById("armor");
+
+        saveButton.addEventListener("click", () => {
+          const hero = new player(
+            nome.value,
+            pv.innerText,
+            str.innerText,
+            ap.innerText,
+            armor.innerText
+          );
+          HeroDetails(hero);
+        });
 
         break;
       case "#board":
         body.innerHTML = " ";
         body.appendChild(board());
+        console.log(hero);
+
         break;
     }
   });
