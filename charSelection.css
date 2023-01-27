@@ -23,7 +23,6 @@ body {
 }
 
 main {
-  border: 2px solid red;
   height: 40vh;
   display: flex;
   justify-content: center;
@@ -169,6 +168,11 @@ img:hover {
   text-decoration: none;
 }
 
+#botoes {
+  display: flex;
+  gap: 10px;
+}
+
 .shadow {
   position: absolute;
   top: 0;
@@ -237,4 +241,61 @@ img:hover {
 
 #selectCharacter:focus:not(:focus-visible) {
   outline: none;
+}
+
+/* a partir daqui, começa a janela de distribuição de pontos */
+
+#CustomCharacter {
+  display: flex;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#titulo {
+  color: rgb(255, 255, 255);
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+#pontos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+#pontos li {
+  font-weight: bold;
+  font-family: "verdana";
+  color: black;
+}
+
+.add {
+  background-color: rgb(49, 216, 43);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 0.15rem;
+  width: 1rem;
+  height: 1.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.remove {
+  background-color: rgb(194, 37, 37);
+  border: 2px solid rgb(255, 255, 255);
+  width: 1rem;
+  height: 1.5rem;
+  border-radius: 0.15rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
 }

@@ -1,6 +1,8 @@
 import { charSelection } from "./paginas/CharSelection/index.js";
 import { propertiesScreen } from "./paginas/propertiesScreen/index.js";
 import { addAndRemovePoints } from "./functions/addAndRemovePoints.js";
+import { board } from "./paginas/board/index.js";
+import { player, Goblin } from "./player/playerProperties/PlayerClass.js";
 
 const body = document.querySelector("#body");
 
@@ -29,8 +31,11 @@ const init = () => {
         body.innerHTML = " ";
         body.appendChild(propertiesScreen());
         addAndRemovePoints();
+
         break;
-      default:
+      case "#board":
+        body.innerHTML = " ";
+        body.appendChild(board());
         break;
     }
   });
