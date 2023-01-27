@@ -16,7 +16,11 @@ class Player {
 
   attack(target) {
     target.pv = target.pv - this.str;
-    return `${this.nome} causou ${this.str} de dano e a vida atual do inimigo é ${target.pv}`;
+    if (target.pv <= 0) {
+      return `Você matou o inimigo! Parabéns! `;
+    } else {
+      return `${this.nome} causou ${this.str} de dano e a vida atual do inimigo é ${target.pv}`;
+    }
   }
 
   receiveDamage(damage) {
