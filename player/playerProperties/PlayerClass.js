@@ -1,4 +1,4 @@
-export class player {
+export class Player {
   constructor(nome, pv, str, ap, armor) {
     this.nome = nome;
     this.pv = pv;
@@ -7,38 +7,32 @@ export class player {
     this.armor = armor;
   }
 
-  attack(life) {
-    let damage = this.str + this.ap;
-    return `${
-      this.nome
-    } atacou o inimigo e o causou ${damage} de dano a vida do inimigo agora é ${
-      life - damage
-    }`;
+  attack(target) {
+    target.pv = target.pv - this.str;
+    return `${this.nome} causou ${this.str} de dano e a vida atual do inimigo é ${target.pv}`;
   }
 
-  receiveDamage() {
-    let damage = this.str + this.ap;
-    return `${this.nome} recebeu ${this.pv + this.armor - damage}`;
+  receiveDamage(damage) {
+    this.pv = this.pv - damage;
+    return `${this.nome} recebeu ${damage} de dano e sua vida atual é ${this.pv}`;
   }
 }
 
-export class Goblin extends player {
+class Goblin extends Player {
   constructor(pv, str, ap, armor) {
     super(pv, str, ap, armor);
-    this.nome = "Wild Goblin";
+    this.nome = 'Wild Goblin';
   }
 
-  attack(life) {
+  attack(target) {
     let damage = this.str + this.ap;
-    return `${
-      this.nome
-    } atacou o jogador e o causou ${damage} de dano, a vida do inimigo agora é ${
-      life - damage
-    }`;
+    target.pv = target.pv - damage;
+    return `${this.nome} atacou o jogador e o causou ${damage} de dano, a vida do inimigo agora é ${target.pv}`;
   }
 
-  receiveDamage() {
-    let damage = this.str + this.ap;
-    return `${this.nome} recebeu ${this.pv + this.armor - damage}`;
+  receiveDamage(damage) {
+    let totalDamage = damage - this.armor;
+    this.pv = this.pv - totalDamage;
+    return `${this.nome} recebeu ${totalDamage} de dano, sua vida atual é ${this.pv}`;
   }
 }
